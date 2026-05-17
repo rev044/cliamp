@@ -21,6 +21,7 @@ func findMusicFiles(dir string) ([]string, error) {
 		".wav":  true,
 		".m4a":  true,
 		".aac":  true,
+		".opus": true, // added opus support - I use this format a lot
 	}
 
 	var files []string
@@ -93,6 +94,7 @@ func main() {
 				Name:    "shuffle",
 				Aliases: []string{"s"},
 				Usage:   "Shuffle the playlist",
+				Value:   true, // default to shuffle on - I always want this
 			},
 			&cli.BoolFlag{
 				Name:    "loop",
