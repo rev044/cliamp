@@ -42,7 +42,7 @@ func findMusicFiles(dir string) ([]string, error) {
 
 // playFile plays a single audio file using mpv.
 func playFile(file string, shuffle bool, loop bool) error {
-	args := []string{"--no-video"}
+	args := []string{"--no-video", "--volume=70") // default volume to 70% - system volume is usually maxed
 	if shuffle {
 		args = append(args, "--shuffle")
 	}
@@ -68,7 +68,7 @@ func playDirectory(dir string, shuffle bool, loop bool) error {
 		return fmt.Errorf("no supported audio files found in: %s", dir)
 	}
 
-	args := []string{"--no-video"}
+	args := []string{"--no-video", "--volume=70"} // default volume to 70% - system volume is usually maxed
 	if shuffle {
 		args = append(args, "--shuffle")
 	}
